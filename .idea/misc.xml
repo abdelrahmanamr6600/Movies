@@ -6,10 +6,11 @@
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_register.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/MAHMOUD/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_login.xml" value="0.22327898550724637" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
