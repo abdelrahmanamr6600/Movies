@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="#F2F2F2"
-                    android:drawableLeft="@drawable/emaill"
+                    android:drawableLeft="@drawable/email"
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="Email"
                     android:padding="@dimen/_10sdp"
