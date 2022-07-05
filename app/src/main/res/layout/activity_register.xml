@@ -67,7 +67,7 @@
             android:textSize="@dimen/_14ssp" />
 
         <EditText
-            android:id="@+id/name_customer"
+            android:id="@+id/register_tv_name"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_4sdp"
@@ -79,7 +79,7 @@
             android:padding="@dimen/_3sdp" />
 
         <EditText
-            android:id="@+id/email_customer"
+            android:id="@+id/register_tv_email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_4sdp"
@@ -91,7 +91,7 @@
             android:padding="@dimen/_3sdp" />
 
         <EditText
-            android:id="@+id/phoneee_customer"
+            android:id="@+id/register_tv_phone"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_4sdp"
@@ -104,7 +104,7 @@
 
 
         <EditText
-            android:id="@+id/passw_customer"
+            android:id="@+id/register_tv_password"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_4sdp"
@@ -117,7 +117,7 @@
             android:padding="@dimen/_3sdp" />
 
         <EditText
-            android:id="@+id/confirm_customer"
+            android:id="@+id/register_tv_confrimPassword"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:inputType="numberPassword"
@@ -131,7 +131,7 @@
             android:padding="@dimen/_3sdp" />
 
         <Button
-            android:id="@+id/regist_customer"
+            android:id="@+id/register_btn"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_gravity="center"
@@ -157,7 +157,7 @@
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
-                android:id="@+id/log_customer"
+                android:id="@+id/register_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 

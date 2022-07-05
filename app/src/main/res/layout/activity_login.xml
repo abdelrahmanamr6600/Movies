@@ -44,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="Login"
                     android:textAlignment="center"
                     android:textColor="@color/colorprimary1"
@@ -71,7 +71,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/email_login"
+                    android:id="@+id/login_tv_email"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:background="#F2F2F2"
@@ -81,11 +81,11 @@
                     android:padding="@dimen/_10sdp"
                     android:textColorHint="#0097A7"
                     android:textSize="@dimen/_14ssp"
-                    app:met_floatingLabel="highlight"
-                    app:met_singleLineEllipsis="true" />
+
+                    />
 
                 <EditText
-                    android:id="@+id/password_login"
+                    android:id="@+id/login_tv_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -97,8 +97,7 @@
                     android:padding="@dimen/_10sdp"
                     android:textColorHint="#0097A7"
                     android:textSize="@dimen/_14ssp"
-                    app:met_floatingLabel="highlight"
-                    app:met_singleLineEllipsis="true" />
+                  />
 
                 <TextView
                     android:id="@+id/forget"
@@ -115,7 +114,7 @@
                     android:textSize="@dimen/_14ssp" />
 
                 <Button
-                    android:id="@+id/login_button"
+                    android:id="@+id/login_btn_log"
                     android:layout_width="@dimen/_230sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginTop="@dimen/_15sdp"
@@ -127,15 +126,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16ssp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:text="or Login With"
-                    android:textAlignment="center"
-                    android:textColor="@color/secprimary1"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="normal" />
             </LinearLayout>
 
 
@@ -159,7 +149,7 @@
                     android:textStyle="normal" />
 
                 <TextView
-                    android:id="@+id/register"
+                    android:id="@+id/login_tv_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
