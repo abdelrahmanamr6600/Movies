@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movies.Pojo.Const
-import com.example.movies.Pojo.Movies
+import com.example.movies.Pojo.MoviesTopRated.Result
 import com.example.movies.R
-import com.example.movies.Pojo.Result
+import java.util.*
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHolder>() {
   //  private lateinit var onItemListner: SentDetails
     var movieslist: List<Result> = emptyList()
 
@@ -21,13 +21,13 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesTopRatedAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_movies, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MoviesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MoviesTopRatedAdapter.ViewHolder, position: Int) {
         var data: Result = movieslist[position]
         holder.setId(data)
     }
@@ -43,6 +43,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_movies)
         var titel: TextView = itemView.findViewById(R.id.name_of_movies)
+        var rated: TextView = itemView.findViewById(R.id.toprated_movies)
 /*
         init {
             itemView.setOnClickListener {
@@ -56,6 +57,9 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
             Glide.with(img.context)
                 .load(Const.BASE_URL_IMG + data.poster_path)
                 .into(img)
+    val r = Random()
+    val i1 = r.nextInt(10 - 5) + 5
+    rated.text="${i1}"
         }
 
     }

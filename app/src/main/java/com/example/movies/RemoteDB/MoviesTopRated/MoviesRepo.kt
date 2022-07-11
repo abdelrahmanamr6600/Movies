@@ -1,8 +1,8 @@
-package com.example.movies.RemoteDB.Movies
+package com.example.movies.RemoteDB.MoviesTopRated
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.movies.Pojo.Movies
+import com.example.movies.Pojo.MoviesTopRated.Movies
 import com.example.movies.RemoteDB.Builder
 import com.example.movies.RemoteDB.UserInterFace
 import retrofit2.Call

@@ -3,53 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_margin="@dimen/_5sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_10sdp">
+        app:cardCornerRadius="@dimen/_10sdp">
 
         <ImageView
-            android:id="@+id/id_movies"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:src="@drawable/img_movies" />
+            android:id="@+id/id_moviesPopular"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corner_reduce"
+            android:scaleType="fitXY"
+
+            tools:srcCompat="@tools:sample/avatars"/>
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name_of_movies"
+            android:id="@+id/name_of_moviesPopular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_margin="@dimen/_5sdp"
+
             android:fontFamily="@font/poppins_medium"
 
             android:text="Name of movie "
             android:textColor="#4A4B4D"
             android:textSize="@dimen/_15ssp" />
 
-        <RatingBar
-            android:id="@+id/ratingBar"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_33sdp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="ٌRating /"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+            <TextView
+                android:id="@+id/rating_popular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/metrophobic"
+                android:text=" 5.6"
+                android:textColor="@color/colorprimary"
+                android:textSize="@dimen/_15ssp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/typeof_movies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
             android:fontFamily="@font/metrophobic"
-            android:text="Type of Movies"
+            android:text="Languages"
             android:textColor="#B6B7B7"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_20ssp" />
     </LinearLayout>
 

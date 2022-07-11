@@ -1,4 +1,4 @@
-package com.example.movies.Pojo
+package com.example.movies.Pojo.MoviesTopRated
 
 data class Result(
     val adult: Boolean,
