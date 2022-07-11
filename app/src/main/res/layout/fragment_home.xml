@@ -5,19 +5,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MainUser.FragmentsDetails.Home">
-
-    <ImageView
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:src="@drawable/user_profile"
-        android:layout_gravity="end"
-        android:layout_margin="@dimen/_15sdp"/>
+    tools:context=".FragmentsUser.Home">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:orientation="horizontal">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="@dimen/_5sdp"
+        android:layout_weight="1"
         >
 
         <TextView
@@ -37,6 +36,16 @@
             android:textSize="@dimen/_20ssp" />
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:src="@drawable/user_profile"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/_5sdp"
+        />
+</LinearLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rec_movies"
+        android:orientation="horizontal"
         android:layout_margin="@dimen/_5sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
@@ -65,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rec_movies_popular"
+        android:orientation="vertical"
         android:layout_margin="@dimen/_5sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         />
