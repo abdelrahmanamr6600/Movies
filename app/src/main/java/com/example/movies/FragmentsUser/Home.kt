@@ -1,5 +1,6 @@
 package com.example.movies.FragmentsUser
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.movies.Adapters.MoviesPopularAdapter
 import com.example.movies.Adapters.MoviesTopRatedAdapter
+import com.example.movies.Details.Details
 import com.example.movies.Pojo.MoviesPopular.ResultX
 import com.example.movies.Pojo.MoviesTopRated.Result
 import com.example.movies.RemoteDB.MoviesPopular.MoviesPopularViewModel
@@ -26,6 +28,8 @@ class Home : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         getTopRatedMovies()
         getPopularMovies()
+        getIdFromTopRatedMovies()
+        getIdFromPopularMovies()
         return binding.getRoot();
     }
 
@@ -50,4 +54,29 @@ class Home : Fragment() {
         moviesPopularAdapter.setList(list)
         binding.recMoviesPopular.adapter = moviesPopularAdapter
     }
+
+    fun getIdFromTopRatedMovies() {
+        moviesTopRatedAdapter.setOnItemClick(object : MoviesTopRatedAdapter.SentDetails {
+
+            override fun onItemClick(id: Int) {
+                val intent = Intent(requireContext(), Details::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
+            }
+
+        })
+    }
+
+    fun getIdFromPopularMovies() {
+        moviesPopularAdapter.setOnItemClick(object : MoviesPopularAdapter.SentDetails {
+
+            override fun onItemClick(id: Int) {
+                val intent = Intent(requireContext(), Details::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
+            }
+
+        })
+    }
+
 }

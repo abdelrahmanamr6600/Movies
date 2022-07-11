@@ -13,18 +13,23 @@ import com.example.movies.R
 import java.util.*
 
 class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHolder>() {
-  //  private lateinit var onItemListner: SentDetails
+  private lateinit var onItemListner: SentDetails
     var movieslist: List<Result> = emptyList()
 
     fun setList(data: List<Result>) {
         this.movieslist = data
         notifyDataSetChanged()
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesTopRatedAdapter.ViewHolder {
+    fun setOnItemClick(item: SentDetails) {
+        this.onItemListner = item
+    }
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MoviesTopRatedAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_movies, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, itemlistenr = onItemListner)
     }
 
     override fun onBindViewHolder(holder: MoviesTopRatedAdapter.ViewHolder, position: Int) {
@@ -36,30 +41,31 @@ class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHol
         return movieslist.size
     }
 
-//    interface SentDetails {
-//        fun onItemClick(postion: Int)
-//    }
+    interface SentDetails {
+        fun onItemClick(postion: Int)
+    }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View,itemlistenr:SentDetails ) : RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_movies)
         var titel: TextView = itemView.findViewById(R.id.name_of_movies)
         var rated: TextView = itemView.findViewById(R.id.toprated_movies)
-/*
-        init {
-            itemView.setOnClickListener {
-                onItemListner.onItemClick(movieslist[layoutPosition].id)
-            }
 
-        }
-*/
+
+                init {
+                    itemView.setOnClickListener {
+                        onItemListner.onItemClick(movieslist[layoutPosition].id)
+                    }
+
+                }
+
         fun setId(data: Result) {
             titel.text = data.title
             Glide.with(img.context)
                 .load(Const.BASE_URL_IMG + data.poster_path)
                 .into(img)
-    val r = Random()
-    val i1 = r.nextInt(10 - 5) + 5
-    rated.text="${i1}"
+            val r = Random()
+            val i1 = r.nextInt(10 - 5) + 5
+            rated.text = "${i1}"
         }
 
     }
