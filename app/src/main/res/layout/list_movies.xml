@@ -16,6 +16,7 @@
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_150sdp"
             android:layout_margin="@dimen/_5sdp"
+            app:cardElevation="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_10sdp">
 
             <ImageView
@@ -49,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="ٌRating /"
+                android:text="10/"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp" />
             <TextView
