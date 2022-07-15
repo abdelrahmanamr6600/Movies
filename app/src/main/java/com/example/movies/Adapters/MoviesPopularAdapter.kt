@@ -54,7 +54,7 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
 
 
                 init {
-                    itemView.setOnClickListener {
+                    img.setOnClickListener {
                         onItemListner.onItemClick(movieslist[layoutPosition].id)
                     }
 

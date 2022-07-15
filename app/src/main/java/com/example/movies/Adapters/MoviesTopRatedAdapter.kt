@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.movies.Pojo.Const
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.R
+import com.example.movies.showToast
 import java.util.*
 
 class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHolder>() {
@@ -35,6 +36,9 @@ class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHol
     override fun onBindViewHolder(holder: MoviesTopRatedAdapter.ViewHolder, position: Int) {
         var data: Result = movieslist[position]
         holder.setId(data)
+        holder.img_fav.setOnClickListener {
+            onItemListner.getClickedFavourite(movieslist.get(position).id)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -43,16 +47,18 @@ class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHol
 
     interface SentDetails {
         fun onItemClick(postion: Int)
+        fun getClickedFavourite(postion: Int)
     }
 
     inner class ViewHolder(itemView: View,itemlistenr:SentDetails ) : RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_movies)
         var titel: TextView = itemView.findViewById(R.id.name_of_movies)
         var rated: TextView = itemView.findViewById(R.id.toprated_movies)
+        var img_fav: ImageView = itemView.findViewById(R.id.imgFav)
 
 
                 init {
-                    itemView.setOnClickListener {
+                    img.setOnClickListener {
                         onItemListner.onItemClick(movieslist[layoutPosition].id)
                     }
 

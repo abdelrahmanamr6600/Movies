@@ -60,11 +60,18 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/metrophobic"
                 android:text=" 5.6"
+                android:layout_weight="1"
                 android:textColor="@color/colorprimary"
                 android:textSize="@dimen/_15ssp" />
 
-        </LinearLayout>
 
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_heart"
+            android:id="@+id/imgFav"
+            android:layout_gravity="center|end"/>
     </LinearLayout>
 
 </LinearLayout>
