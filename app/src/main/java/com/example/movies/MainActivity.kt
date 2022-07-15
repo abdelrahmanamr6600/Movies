@@ -3,10 +3,7 @@ package com.example.movies
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.movies.FragmentsUser.Booking
-import com.example.movies.FragmentsUser.Home
-import com.example.movies.FragmentsUser.ListMovies
-import com.example.movies.FragmentsUser.Profile
+import com.example.movies.FragmentsUser.*
 
 import com.example.movies.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView

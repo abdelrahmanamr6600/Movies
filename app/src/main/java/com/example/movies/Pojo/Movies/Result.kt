@@ -1,9 +1,14 @@
-package com.example.movies.Pojo.MoviesTopRated
+package com.example.movies.Pojo.Movies
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "movies")
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
+@PrimaryKey
     val id: Int,
     val original_language: String,
     val original_title: String,

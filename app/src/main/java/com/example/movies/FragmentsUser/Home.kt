@@ -9,37 +9,50 @@ import android.view.ViewGroup
 import com.example.movies.Adapters.MoviesPopularAdapter
 import com.example.movies.Adapters.MoviesTopRatedAdapter
 import com.example.movies.Details.Details
-import com.example.movies.Pojo.MoviesPopular.ResultX
-import com.example.movies.Pojo.MoviesTopRated.Result
+import com.example.movies.LocalDB.DB
+import com.example.movies.LocalDB.RepoDB
+import com.example.movies.Pojo.Movies.Result
+import com.example.movies.R
 import com.example.movies.RemoteDB.MoviesPopular.MoviesPopularViewModel
 import com.example.movies.RemoteDB.MoviesTopRated.MoviesViewModel
 import com.example.movies.databinding.FragmentHomeBinding
+import com.example.movies.databinding.FragmentTestBinding
 
 class Home : Fragment() {
+
     private lateinit var binding: FragmentHomeBinding
     private val moviesTopRatedAdapter by lazy { MoviesTopRatedAdapter() }
     private val moviesPopularAdapter by lazy { MoviesPopularAdapter() }
     val movieTopRatedViewmodel = MoviesViewModel()
     val moviePopularViewmodel = MoviesPopularViewModel()
+
+   val instance = DB.getInstance(context =requireActivity().baseContext)
+   val db = RepoDB(instance)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+
         getTopRatedMovies()
         getPopularMovies()
         getIdFromTopRatedMovies()
         getIdFromPopularMovies()
-        return binding.getRoot();
-    }
 
+        return  binding.getRoot();
+    }
     fun getTopRatedMovies() {
         movieTopRatedViewmodel.getTopRatedMovies().observe(viewLifecycleOwner) {
             sentDataToRecyclerviewTopRated(it.results)
+            //   db.insertMovies(it)
         }
     }
 
     fun sentDataToRecyclerviewTopRated(list: List<Result>) {
+//        if(list==null){
+//            moviesTopRatedAdapter.setList( db.getMovies().results)
+//        }
         moviesTopRatedAdapter.setList(list)
         binding.recMovies.adapter = moviesTopRatedAdapter
     }
@@ -50,7 +63,7 @@ class Home : Fragment() {
         }
     }
 
-    fun sentDataToRecyclerviewPopular(list: List<ResultX>) {
+    fun sentDataToRecyclerviewPopular(list: List<Result>) {
         moviesPopularAdapter.setList(list)
         binding.recMoviesPopular.adapter = moviesPopularAdapter
     }

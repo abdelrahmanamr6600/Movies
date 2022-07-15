@@ -8,16 +8,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movies.Pojo.Const
-import com.example.movies.Pojo.MoviesPopular.ResultX
+
 import com.example.movies.R
-import com.example.movies.Pojo.MoviesTopRated.Result
+import com.example.movies.Pojo.Movies.Result
 import java.util.*
 
 class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolder>() {
     private lateinit var onItemListner: SentDetails
-    var movieslist: List<ResultX> = emptyList()
+    var movieslist: List<Result> = emptyList()
 
-    fun setList(data: List<ResultX>) {
+    fun setList(data: List<Result>) {
         this.movieslist = data
         notifyDataSetChanged()
     }
@@ -32,7 +32,7 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
     }
 
     override fun onBindViewHolder(holder: MoviesPopularAdapter.ViewHolder, position: Int) {
-        var data: ResultX = movieslist[position]
+        var data: Result= movieslist[position]
         holder.setId(data)
     }
 
@@ -60,7 +60,7 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
 
                 }
 
-        fun setId(data: ResultX) {
+        fun setId(data: Result) {
             titel.text = data.title
             language.text = data.original_language
             Glide.with(img.context)
