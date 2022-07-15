@@ -26,8 +26,8 @@ class Home : Fragment() {
     val movieTopRatedViewmodel = MoviesViewModel()
     val moviePopularViewmodel = MoviesPopularViewModel()
 
-   val instance = DB.getInstance(context =requireActivity().baseContext)
-   val db = RepoDB(instance)
+   val instance = context?.let { DB.getInstance(context = it) }
+   val db = instance?.let { RepoDB(it) }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +45,7 @@ class Home : Fragment() {
     fun getTopRatedMovies() {
         movieTopRatedViewmodel.getTopRatedMovies().observe(viewLifecycleOwner) {
             sentDataToRecyclerviewTopRated(it.results)
-            //   db.insertMovies(it)
+            db?.insertMovies(it.results)
         }
     }
 
