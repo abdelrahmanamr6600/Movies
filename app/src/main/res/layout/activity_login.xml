@@ -79,7 +79,7 @@
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="Email"
                     android:padding="@dimen/_10sdp"
-                    android:textColorHint="#B6B7B7"
+                    android:textColorHint="#0097A7"
                     android:textSize="@dimen/_14ssp"
 
                     />
@@ -95,9 +95,9 @@
                     android:hint="Password"
                     android:inputType="numberPassword"
                     android:padding="@dimen/_10sdp"
-                    android:textColorHint="#B6B7B7"
+                    android:textColorHint="#0097A7"
                     android:textSize="@dimen/_14ssp"
-                  />
+                    android:autofillHints="" />
 
                 <TextView
                     android:id="@+id/forget"
@@ -157,7 +157,7 @@
                     android:fontFamily="@font/poppins"
                     android:onClick="registertrans"
                     android:text="Sign Up"
-                    android:textColor="@color/maincolor"
+                    android:textColor="@color/red"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="normal"
                     tools:ignore="TouchTargetSizeCheck" />

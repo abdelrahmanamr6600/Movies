@@ -14,18 +14,18 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
+    val loginviewmodel = loginViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.loginTvRegister.setOnClickListener{
+        binding.loginTvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
-
+/*
         binding.loginBtnLog.setOnClickListener {
             val email = binding.loginTvEmail.text.toString()
             val password = binding.loginTvPassword.text.toString()
@@ -47,13 +47,27 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+
+        */
+        binding.loginBtnLog.setOnClickListener {
+            loginUser()
+        }
     }
-//هراجعها لسه بعد مااعمل رن عشان اشتاكد منهالانها فتحت البرنامج بعد الريجيستر من غير يا يدخل الاميل ويعمل لوج ان
-//    override fun onStart() {
-//        super.onStart()
-//        if (firebaseAuth.currentUser != null){
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
+
+    override fun onStart() {
+        super.onStart()
+        if (firebaseAuth.currentUser != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun loginUser() {
+        binding.apply {
+            var email = loginTvEmail.text
+            var password = loginTvPassword.text
+
+            loginviewmodel.logIn(email.toString(), password = password.toString())
+        }
+    }
 }

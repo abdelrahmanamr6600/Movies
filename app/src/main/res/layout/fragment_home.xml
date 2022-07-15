@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/metrophobic"
-        android:text="Book your favourite movie "
+        android:text="Select your favourite movie "
         android:layout_margin="@dimen/_5sdp"
         android:textColor="#B6B7B7"
         android:textSize="@dimen/_15ssp" />
