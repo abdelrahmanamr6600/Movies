@@ -48,7 +48,7 @@ class Home : Fragment() {
         getIdFromPopularMovies()
         return  binding.getRoot();
     }
-    fun getTopRatedMovies() {
+    private fun getTopRatedMovies() {
         movieTopRatedViewmodel.getTopRatedMovies().observe(viewLifecycleOwner) {
 
     sentDataToRecyclerviewTopRated(it.results)
@@ -56,8 +56,8 @@ class Home : Fragment() {
 
         }
     }
-    fun sentDataToRecyclerviewTopRated(list: List<Result>) {
-        if(list.size==0){
+    private fun sentDataToRecyclerviewTopRated(list: List<Result>) {
+        if(list.isEmpty()){
             moviesTopRatedAdapter.setList( db!!.getMovies())
             binding.recMovies.adapter = moviesTopRatedAdapter
         }else{
@@ -68,18 +68,18 @@ class Home : Fragment() {
 
     }
 
-    fun getPopularMovies() {
+    private fun getPopularMovies() {
         moviePopularViewmodel.getPopularMovies().observe(viewLifecycleOwner) {
             sentDataToRecyclerviewPopular(it.results)
         }
     }
 
-    fun sentDataToRecyclerviewPopular(list: List<Result>) {
+    private fun sentDataToRecyclerviewPopular(list: List<Result>) {
         moviesPopularAdapter.setList(list)
         binding.recMoviesPopular.adapter = moviesPopularAdapter
     }
 
-    fun getIdFromTopRatedMovies() {
+    private fun getIdFromTopRatedMovies() {
         moviesTopRatedAdapter.setOnItemClick(object : MoviesTopRatedAdapter.SentDetails {
 
             override fun onItemClick(id: Int) {
@@ -90,6 +90,9 @@ class Home : Fragment() {
 
             override fun getClickedFavourite(postion: Int) {
                 Log.d("Clicked","Postion is $postion")
+                movieTopRatedViewmodel.getMoviesID(postion).observe(viewLifecycleOwner){
+                  db!!.insertMoviesFab(it)
+                }
             }
 
         })

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.movies.LocalDB.DB
 
 import com.example.movies.Pojo.Movies.Movies
+import com.example.movies.Pojo.MoviesId.MoviesID
 import com.example.movies.RemoteDB.Builder
 import com.example.movies.RemoteDB.UserInterFace
 import retrofit2.Call
@@ -31,5 +32,23 @@ class MoviesRepo {
             }
         })
         return mutableLiveData
+    }
+
+    fun getMoviebyId(movie: Int): MutableLiveData<MoviesID> {
+        var mutable = MutableLiveData<MoviesID>()
+        val interBuilder: UserInterFace = Builder.retorfitBuilder.create(UserInterFace::class.java)
+        val call = interBuilder.getMovieByID(movie)
+        call.enqueue(object : Callback<MoviesID> {
+            override fun onResponse(call: Call<MoviesID>, response: Response<MoviesID>) {
+                if (response.isSuccessful)
+                    mutable.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<MoviesID>, t: Throwable) {
+                Log.d("Error", t.message.toString())
+            }
+
+        })
+        return mutable
     }
 }

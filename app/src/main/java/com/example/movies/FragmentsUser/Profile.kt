@@ -6,14 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.movies.R
+import com.example.movies.databinding.FragmentHomeBinding
+import com.example.movies.databinding.FragmentProfileBinding
 
 class Profile : Fragment() {
-
+    private lateinit var binding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+
+        
+        return binding.getRoot()
     }
 }
