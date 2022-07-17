@@ -27,7 +27,7 @@ class Details : AppCompatActivity() {
             showToast(applicationContext, "We will add this soon")
         }
     }
-
+// use coroutines
     fun getMoviesByID() {
         val catId = intent.getIntExtra("id", 78)
         moviesID.getMoviesID(catId).observe(this) {

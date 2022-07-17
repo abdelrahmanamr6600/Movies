@@ -7,10 +7,13 @@ import android.widget.Toast
 import com.example.movies.Login.LoginActivity
 import com.example.movies.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,20 @@ class RegisterActivity : AppCompatActivity() {
             val number = binding.registerTvPhone.text.toString()
             val password = binding.registerTvPassword.text.toString()
             val confPassword = binding.registerTvConfrimPassword.text.toString()
+
+
+            database = FirebaseDatabase.getInstance().getReference("Users")
+            val User = User(name,email, number, password,confPassword)
+            database.child(userName).setValue(User).addOnSuccessListener  {
+                binding.registerTvName.text.clear()
+                binding.registerTvEmail.text.clear()
+                binding.registerTvPhone.text.clear()
+                binding.registerTvPassword.text.clear()
+
+                Toast.makeText(this,"Successfully Saved",Toast.LENGTH_SHORT).show()
+
+            }
+
 
             if (name.isNotEmpty() && email.isNotEmpty() && number.isNotEmpty() &&
                 password.isNotEmpty() && confPassword.isNotEmpty()){
@@ -54,5 +71,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
         }
+
+
     }
 }

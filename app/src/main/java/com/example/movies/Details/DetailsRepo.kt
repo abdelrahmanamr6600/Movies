@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailsRepo {
-
+// use coroutines عايز اللغي اللايف داتا لانها مش حلوه وفي الاستاك فلو احسن منها كتير
     fun getMoviebyId(movie: Int): MutableLiveData<MoviesID> {
         var mutable = MutableLiveData<MoviesID>()
         val interBuilder: UserInterFace = Builder.retorfitBuilder.create(UserInterFace::class.java)

@@ -56,6 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+
     fun loginUser() {
         binding.apply {
             var email = loginTvEmail.text

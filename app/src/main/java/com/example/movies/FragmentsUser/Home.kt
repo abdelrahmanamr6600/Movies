@@ -48,6 +48,7 @@ class Home : Fragment() {
         getIdFromPopularMovies()
         return  binding.getRoot();
     }
+    // use coroutines محتاج منك توضيح هنا ...كل دا بيجيب داتا صح
     private fun getTopRatedMovies() {
         movieTopRatedViewmodel.getTopRatedMovies().observe(viewLifecycleOwner) {
 
