@@ -35,8 +35,9 @@ class RegisterActivity : AppCompatActivity() {
 
 
             database = FirebaseDatabase.getInstance().getReference("Users")
-            val User = User(name,email, number, password,confPassword)
-            database.child("userName").setValue(User).addOnSuccessListener  {
+    /*
+            val user = User(name,email, number, password,confPassword)
+            database.child("userName").setValue(user).addOnSuccessListener  {
                 binding.registerTvName.text.clear()
                 binding.registerTvEmail.text.clear()
                 binding.registerTvPhone.text.clear()
@@ -46,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-
+*/
             if (name.isNotEmpty() && email.isNotEmpty() && number.isNotEmpty() &&
                 password.isNotEmpty() && confPassword.isNotEmpty()){
                 if (password == confPassword){

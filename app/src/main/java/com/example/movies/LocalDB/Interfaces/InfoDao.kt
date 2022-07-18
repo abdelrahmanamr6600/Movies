@@ -16,7 +16,7 @@ interface InfoDao {
     @Query("SELECT * FROM movies")
     fun getMovies(): List<Result>
 
-    @Query("SELECT * FROM movies WHERE ")
+    @Query("SELECT * FROM movies  ")
     fun getFavMovies(): MoviesID
 
     @Delete

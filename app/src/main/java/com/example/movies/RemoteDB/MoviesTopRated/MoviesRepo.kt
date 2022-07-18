@@ -3,6 +3,7 @@ package com.example.movies.RemoteDB.MoviesTopRated
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.movies.LocalDB.DB
+import com.example.movies.LocalDB.RepoDB
 
 import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.MoviesId.MoviesID
@@ -13,6 +14,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MoviesRepo {
+//    val instance = context?.let { DB.getInstance(context = it) }
+//    val db = instance?.let { RepoDB(it) }
 
     fun getMovies(): MutableLiveData<Movies> {
         var mutableLiveData = MutableLiveData<Movies>()
