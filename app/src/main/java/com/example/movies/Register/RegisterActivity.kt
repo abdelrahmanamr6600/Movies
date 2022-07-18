@@ -21,7 +21,6 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-
         binding.registerTvLogin.setOnClickListener{
             val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
@@ -37,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
             database = FirebaseDatabase.getInstance().getReference("Users")
             val User = User(name,email, number, password,confPassword)
-            database.child(userName).setValue(User).addOnSuccessListener  {
+            database.child("userName").setValue(User).addOnSuccessListener  {
                 binding.registerTvName.text.clear()
                 binding.registerTvEmail.text.clear()
                 binding.registerTvPhone.text.clear()

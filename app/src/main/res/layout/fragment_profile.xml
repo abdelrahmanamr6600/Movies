@@ -167,7 +167,7 @@
         android:id="@+id/gotoLogin"
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_50sdp"
-        android:background="@drawable/button_next"
+        android:background="@color/black"
         android:text="Sign Out"
         android:textAllCaps="false"
         android:textColor="@color/white"

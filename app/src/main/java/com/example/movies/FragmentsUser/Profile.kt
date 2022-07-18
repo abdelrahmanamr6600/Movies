@@ -22,30 +22,28 @@ class Profile : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.getRoot()
 
-        binding.locationChange.setOnClickListener{
-            Toast.makeText()(this, "Soon", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.changelanguage.setOnClickListener {
-            Toast.makeText(this, "Soon", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.notificationProfile.setOnClickListener {
-            Toast.makeText(this, "Soon", Toast.LENGTH_SHORT).show()
-
-
-        }
-
-        binding.support.setOnClickListener {
-             Toast.makeText(this, "pleas contact us", Toast.LENGTH_SHORT).show()
-
-        }
-
+//        binding.locationChange.setOnClickListener{
+//            Toast.makeText()(this, "Soon", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        binding.changelanguage.setOnClickListener {
+//            Toast.makeText(this, "Soon", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        binding.notificationProfile.setOnClickListener {
+//            Toast.makeText(this, "Soon", Toast.LENGTH_SHORT).show()
+//
+//
+//        }
+//
+//        binding.support.setOnClickListener {
+//             Toast.makeText(this, "pleas contact us", Toast.LENGTH_SHORT).show()
+//
+//        }
+//
         binding.gotoLogin.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity( Intent(requireContext(), LoginActivity::class.java))
         }
 
     }
