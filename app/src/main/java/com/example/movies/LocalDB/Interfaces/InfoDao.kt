@@ -8,16 +8,16 @@ import com.example.movies.Pojo.MoviesId.MoviesID
 @Dao
 interface InfoDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMovies(movie: List<Result>)
+     fun insertMovies(movie: List<Result>)
 
-    @Insert
-    fun insertMoviesFav(movies: MoviesID)
+//    @Insert
+//    fun insertMoviesFav(movies: MoviesID)
 
     @Query("SELECT * FROM movies")
     fun getMovies(): List<Result>
 
-    @Query("SELECT * FROM movies  ")
-    fun getFavMovies(): MoviesID
+//    @Query("SELECT * FROM Result")
+//    fun getFavMovies(): MoviesID
 
     @Delete
     fun delete(list: List<Result>)

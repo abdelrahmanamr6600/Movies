@@ -164,7 +164,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/gotoLogin"
+        android:id="@+id/sign_out"
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_50sdp"
         android:background="@color/black"

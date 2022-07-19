@@ -11,7 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MoviesPopularRepo {
-
+/*
     fun getMovies(): MutableLiveData<Movies> {
         var mutableLiveData = MutableLiveData<Movies>()
         var userInterfacebuilder = Builder.retorfitBuilder.create(UserInterFace::class.java)
@@ -30,4 +30,6 @@ class MoviesPopularRepo {
         })
         return mutableLiveData
     }
+
+ */
 }

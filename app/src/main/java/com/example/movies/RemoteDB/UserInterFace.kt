@@ -9,18 +9,19 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface UserInterFace {
+
     @GET("movie/top_rated")
     fun getTopRatedMovies(@Query("api_key") apikey: String = "87ff303a5be046799877856493b51a61"): Call<Movies>
 
+//
+//    @GET("movie/popular")
+//    fun getPopularMovies(@Query("api_key") apikey: String = "87ff303a5be046799877856493b51a61"): Call<Movies>
+//
 
-    @GET("movie/popular")
-    fun getPopularMovies(@Query("api_key") apikey: String = "87ff303a5be046799877856493b51a61"): Call<Movies>
-
-
-@GET("movie/{movie_id}")
+    @GET("movie/{movie_id}")
     fun getMovieByID(
-    @Path("movie_id") movieid:Int,
-    @Query("api_key") apikey: String = "87ff303a5be046799877856493b51a61"
-):Call<MoviesID>
+        @Path("movie_id") movieid: Int,
+        @Query("api_key") apikey: String = "87ff303a5be046799877856493b51a61"
+    ): Call<MoviesID>
 
 }
