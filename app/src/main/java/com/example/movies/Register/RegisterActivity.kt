@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.movies.Login.LoginActivity
+import com.example.movies.Pojo.User
 import com.example.movies.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -35,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
             database = FirebaseDatabase.getInstance().getReference("Users")
-    /*
+
             val user = User(name,email, number, password,confPassword)
             database.child("userName").setValue(user).addOnSuccessListener  {
                 binding.registerTvName.text.clear()
@@ -47,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-*/
+
             if (name.isNotEmpty() && email.isNotEmpty() && number.isNotEmpty() &&
                 password.isNotEmpty() && confPassword.isNotEmpty()){
                 if (password == confPassword){
