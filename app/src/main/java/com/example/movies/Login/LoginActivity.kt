@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.movies.MainActivity
 import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.ActivityLoginBinding
@@ -11,58 +12,27 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginActivity : AppCompatActivity() {
-
+    var loginviewmodel = LoginViewModel()
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var firebaseAuth: FirebaseAuth
-    //val loginviewmodel = loginViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-     //   firebaseAuth = FirebaseAuth.getInstance()
+        loginviewmodel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
 
         binding.loginTvRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-/*
-        binding.loginBtnLog.setOnClickListener {
-            val email = binding.loginTvEmail.text.toString()
-            val password = binding.loginTvPassword.text.toString()
-
-            if ( email.isNotEmpty() &&password.isNotEmpty() ){
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                        }
-                    else{
-                        Toast.makeText(this, it.exception.toString() , Toast.LENGTH_SHORT).show()
-
-                        }
-                    }
-            }
-            else{
-                Toast.makeText(this,"Pleas Filed the Text", Toast.LENGTH_SHORT).show()
-            }
-
+            startActivity(Intent(applicationContext, RegisterActivity::class.java))
         }
 
-        */
         binding.loginBtnLog.setOnClickListener {
-            loginUser()
+            binding.apply {
+                var email = loginTvEmail.text.toString()
+                var passsword = loginTvPassword.text.toString()
+                loginviewmodel.logInFirebase(email=email, password = passsword)
+            }
         }
     }
 
 
-
-
-    fun loginUser() {
-        binding.apply {
-            var email = loginTvEmail.text
-            var password = loginTvPassword.text
-
-         //   loginviewmodel.logIn(email.toString(), password = password.toString())
-        }
-    }
 }

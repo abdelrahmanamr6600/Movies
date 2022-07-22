@@ -79,7 +79,7 @@
                     android:drawablePadding="@dimen/_8sdp"
                     android:hint="Email"
                     android:padding="@dimen/_10sdp"
-                    android:textColorHint="#0097A7"
+                    android:textColorHint="@color/colorprimary1"
                     android:textSize="@dimen/_14ssp"
 
                     />
@@ -95,7 +95,7 @@
                     android:hint="Password"
                     android:inputType="numberPassword"
                     android:padding="@dimen/_10sdp"
-                    android:textColorHint="#0097A7"
+                    android:textColorHint="@color/colorprimary1"
                     android:textSize="@dimen/_14ssp"
                     android:autofillHints="" />
 
