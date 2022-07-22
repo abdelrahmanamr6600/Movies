@@ -1,19 +1,16 @@
 package com.example.movies.Register
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.movies.Login.LoginActivity
 import com.example.movies.Pojo.User
 import com.example.movies.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-
+    var pressed = false
 val registerViewModel =RegisterViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,5 +37,12 @@ val registerViewModel =RegisterViewModel()
 
         }
 
+    }
+    override fun onBackPressed() {
+        if (pressed) {
+            super.onBackPressed()
+        } else {
+            return
+        }
     }
 }

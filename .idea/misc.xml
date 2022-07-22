@@ -16,12 +16,16 @@
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2025" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/drawable/ic_man_user.xml" value="0.2025" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/drawable/list.xml" value="0.1745" />
+        <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_details.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/activity_register.xml" value="0.17074275362318841" />
+        <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_booking.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_favourite.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_movies.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_profile.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/fragment_test.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/list_favoruite.xml" value="0.42736248236953456" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/list_fragment_movies.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/Movies/app/src/main/res/layout/list_movies.xml" value="0.20416666666666666" />

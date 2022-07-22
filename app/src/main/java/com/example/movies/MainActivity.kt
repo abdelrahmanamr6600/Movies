@@ -11,6 +11,7 @@ import com.example.movies.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    var pressed = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragmentContainerView,fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+    override fun onBackPressed() {
+        if (pressed) {
+            super.onBackPressed()
+        } else {
+            return
+        }
     }
 
 }

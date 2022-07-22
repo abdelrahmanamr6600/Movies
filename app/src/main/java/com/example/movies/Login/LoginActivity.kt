@@ -1,19 +1,17 @@
 package com.example.movies.Login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.movies.MainActivity
 import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.ActivityLoginBinding
-import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginActivity : AppCompatActivity() {
     var loginviewmodel = LoginViewModel()
     private lateinit var binding: ActivityLoginBinding
+    var pressed = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -33,6 +31,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
-
+    override fun onBackPressed() {
+        if (pressed) {
+            super.onBackPressed()
+        } else {
+            return
+        }
+    }
 }

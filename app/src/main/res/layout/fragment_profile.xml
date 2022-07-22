@@ -11,15 +11,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/grad"
-        android:paddingBottom="20dp">
+        android:paddingBottom="@dimen/_5sdp">
 
         <RelativeLayout
             android:id="@+id/imgUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/circle_border">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_9sdp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="9dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle"
+                android:padding="@dimen/_3sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/user_profile" />
 
         </RelativeLayout>
 
@@ -29,11 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgUser"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15sp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:fontFamily="sans-serif-light"
-            android:text="Joey Tribbiani"
+            android:text="Mahmoud"
             android:textColor="@color/white"
-            android:textSize="32sp" />
+            android:textSize="@dimen/_25ssp" />
 
 
         <TextView
@@ -43,10 +57,21 @@
             android:layout_below="@+id/profile_tv_name"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
-            android:text="new york, usa"
+            android:text="Egypt, Tanta ,Alex"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:id="@+id/sign_out"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/signout" />
 
 
     </RelativeLayout>
@@ -65,8 +90,8 @@
             android:layout_weight="1"
             android:background="@color/followersBg"
             android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingTop="@dimen/_5sdp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -80,16 +105,16 @@
                     android:fontFamily="sans-serif-light"
                     android:text="453K"
                     android:textColor="@color/white"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/_20ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="followers"
+                    android:text="Favorites"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -102,8 +127,8 @@
             android:layout_weight="1"
             android:background="@color/followingBg"
             android:gravity="center"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingTop="@dimen/_5sdp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -117,16 +142,16 @@
                     android:fontFamily="sans-serif-light"
                     android:text="873"
                     android:textColor="@color/white"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/_20ssp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="following"
+                    android:text="Watched"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -145,8 +170,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -155,24 +180,25 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="56dp"
+                    android:layout_height="28dp"
                     android:text="location"
                     android:textColor="@color/headings"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
+                    android:id="@+id/prof_tv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="My location"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@color/grey" />
 
             </LinearLayout>
@@ -180,7 +206,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -188,20 +214,21 @@
                     android:layout_height="wrap_content"
                     android:text="Phone"
                     android:textColor="@color/headings"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
+                    android:id="@+id/prof_tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="+2-202-555-0157"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@color/grey" />
 
             </LinearLayout>
@@ -209,7 +236,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -217,20 +244,21 @@
                     android:layout_height="wrap_content"
                     android:text="Notification"
                     android:textColor="@color/headings"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
+                    android:id="@+id/prof_tv_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="Your Notification"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:background="@color/grey" />
 
             </LinearLayout>
@@ -238,7 +266,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -246,20 +274,21 @@
                     android:layout_height="wrap_content"
                     android:text="Support"
                     android:textColor="@color/headings"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <TextView
+                    android:id="@+id/prof_tv_support"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:text="Pleas Contact us"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:background="@color/grey" />
 
             </LinearLayout>
