@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.movies.Adapters.MoviesPopularAdapter
 import com.example.movies.Adapters.MoviesTopRatedAdapter
 import com.example.movies.Details.Details
@@ -24,57 +25,47 @@ class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val moviesTopRatedAdapter by lazy { MoviesTopRatedAdapter() }
     private val moviesPopularAdapter by lazy { MoviesPopularAdapter() }
-    val movieTopRatedViewmodel = MoviesViewModel()
+   // val movieTopRatedViewmodel = MoviesViewModel()
     val moviePopularViewmodel = MoviesPopularViewModel()
+    private lateinit var movieTopRatedViewmodel: MoviesViewModel
 
-   val instance = context?.let { DB.getInstance(context = it) }
-   val db = instance?.let { RepoDB(it) }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-//        db!!.getMovies().forEach {
-//          if(it==null){
-//              Log.d("Data","EmptyList")
-//          }
-//            Log.d("Data",it.title)
-//        }
+   movieTopRatedViewmodel = ViewModelProvider(this).get(MoviesViewModel::class.java)
 
         getTopRatedMovies()
-        getPopularMovies()
+     //   getPopularMovies()
         getIdFromTopRatedMovies()
-        getIdFromPopularMovies()
-        return  binding.getRoot();
+        //getIdFromPopularMovies()
+        return binding.getRoot();
     }
-    // use coroutines محتاج منك توضيح هنا ...كل دا بيجيب داتا صح
+
     private fun getTopRatedMovies() {
         movieTopRatedViewmodel.getTopRatedMovies().observe(viewLifecycleOwner) {
 
-    sentDataToRecyclerviewTopRated(it.results)
-    db?.insertMovies(it.results)
+            sentDataToRecyclerviewTopRated(it)
 
         }
     }
+
     private fun sentDataToRecyclerviewTopRated(list: List<Result>) {
-        if(list.isEmpty()){
-            moviesTopRatedAdapter.setList( db!!.getMovies())
-            binding.recMovies.adapter = moviesTopRatedAdapter
-        }else{
-            moviesTopRatedAdapter.setList(list)
-            binding.recMovies.adapter = moviesTopRatedAdapter
-        }
+        moviesTopRatedAdapter.setList(list)
+        binding.recMovies.adapter = moviesTopRatedAdapter
 
 
     }
-
+/*
     private fun getPopularMovies() {
         moviePopularViewmodel.getPopularMovies().observe(viewLifecycleOwner) {
             sentDataToRecyclerviewPopular(it.results)
         }
     }
-
+*/
     private fun sentDataToRecyclerviewPopular(list: List<Result>) {
         moviesPopularAdapter.setList(list)
         binding.recMoviesPopular.adapter = moviesPopularAdapter
@@ -90,15 +81,14 @@ class Home : Fragment() {
             }
 
             override fun getClickedFavourite(postion: Int) {
-                Log.d("Clicked","Postion is $postion")
-                movieTopRatedViewmodel.getMoviesID(postion).observe(viewLifecycleOwner){
-                  db!!.insertMoviesFab(it)
-                }
+                Log.d("Clicked", "Postion is $postion")
+                // movieTopRatedViewmodel.getMoviesID(postion).observe(viewLifecycleOwner){
+                //              }
             }
 
         })
     }
-
+/*
     fun getIdFromPopularMovies() {
         moviesPopularAdapter.setOnItemClick(object : MoviesPopularAdapter.SentDetails {
 
@@ -110,5 +100,5 @@ class Home : Fragment() {
 
         })
     }
-
+*/
 }

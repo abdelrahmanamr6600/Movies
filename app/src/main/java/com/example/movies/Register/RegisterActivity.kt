@@ -35,8 +35,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
             database = FirebaseDatabase.getInstance().getReference("Users")
-            FirebaseAuth.getInstance().currentUser!!.uid
-            /*
+    /*
             val user = User(name,email, number, password,confPassword)
             database.child("userName").setValue(user).addOnSuccessListener  {
                 binding.registerTvName.text.clear()
