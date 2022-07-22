@@ -11,7 +11,7 @@ import com.example.movies.Pojo.Movies.Result
 
 const val DATABASE_NAME = "movies"
 @Database(entities = [Result::class,Favourite::class], version = 5, exportSchema = false)
-
+//
 abstract class DB : RoomDatabase() {
 
     abstract fun getDao(): InfoDao

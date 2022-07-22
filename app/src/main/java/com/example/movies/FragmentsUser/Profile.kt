@@ -22,6 +22,7 @@ class Profile : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.getRoot()
 
+
 //        binding.locationChange.setOnClickListener{
 //            Toast.makeText()(this, "Soon", Toast.LENGTH_SHORT).show()
 //        }
@@ -41,10 +42,10 @@ class Profile : Fragment() {
 //
 //        }
 //
-        binding.gotoLogin.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            startActivity( Intent(requireContext(), LoginActivity::class.java))
-        }
+//        binding.signOut.setOnClickListener {
+//            FirebaseAuth.getInstance().signOut()
+//            startActivity( Intent(requireContext(), LoginActivity::class.java))
+//        }
 
     }
 

@@ -14,8 +14,9 @@ android:layout_weight="1"
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_7sdp"
             app:cardElevation="@dimen/_5sdp"
+
             app:cardCornerRadius="@dimen/_10sdp">
 
             <ImageView
@@ -24,6 +25,7 @@ android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:background="@drawable/corner_reduce"
                 android:scaleType="fitXY"
+
                 tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.cardview.widget.CardView>
@@ -48,7 +50,8 @@ android:layout_weight="1"
         android:id="@+id/overview_movies_fav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="start"
+        android:padding="@dimen/_2sdp"
         android:fontFamily="@font/metrophobic"
         android:text="Overview"
         android:textColor="#4A4B4D"
@@ -62,7 +65,7 @@ android:layout_weight="1"
         android:layout_height="@dimen/_30sdp"
         android:src="@drawable/ic_heartclicked"
         android:id="@+id/imgFav"
-       android:layout_marginRight="@dimen/_5sdp"
+       android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
      />
 </LinearLayout>

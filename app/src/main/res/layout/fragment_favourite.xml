@@ -13,26 +13,27 @@
         android:id="@+id/textView"
         android:layout_width="405dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
         android:padding="@dimen/_8sdp"
         android:text="Favourite "
-        android:gravity="center"
-        android:fontFamily="@font/poppins_bold"
         android:textSize="@dimen/_14ssp"
         app:layout_constraintBottom_toTopOf="@+id/rec_favourite"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_favourite"
-        android:layout_width="395dp"
-        android:layout_height="676dp"
+        android:layout_width="401dp"
+        android:layout_height="548dp"
         android:layout_marginBottom="4dp"
+        android:orientation="vertical"
         android:padding="@dimen/_8sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
