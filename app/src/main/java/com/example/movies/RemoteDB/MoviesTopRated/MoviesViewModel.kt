@@ -9,15 +9,15 @@ import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.Pojo.MoviesId.MoviesID
 
-class MoviesViewModel(application: Application) : AndroidViewModel(application) {
-    private val myRepo: MoviesRepo by lazy { MoviesRepo(application) }
+class MoviesViewModel:ViewModel() {
+    private val myRepo: MoviesRepo by lazy { MoviesRepo() }
 
     fun getTopRatedMovies():MutableLiveData<List<Result>>{
         return  myRepo.getMovies()
     }
 
 
-//    fun getMoviesID(movie:Int): MutableLiveData<MoviesID> {
-//        return  myRepo.getMoviebyId(movie)
-//    }
+    fun getMoviesID(movie:Int): MutableLiveData<MoviesID> {
+        return  myRepo.getMoviebyId(movie)
+    }
 }

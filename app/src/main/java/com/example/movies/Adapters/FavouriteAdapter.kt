@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movies.Pojo.Const
+import com.example.movies.Pojo.Favourite
 
 import com.example.movies.R
 import com.example.movies.Pojo.Movies.Result
@@ -16,9 +17,9 @@ import java.util.*
 
 class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>() {
 
-    var movieslist: List<MoviesID> = emptyList()
+    var movieslist: List<Favourite> = emptyList()
 
-    fun setList(data: List<MoviesID>) {
+    fun setList(data: List<Favourite>) {
         this.movieslist = data
         notifyDataSetChanged()
     }
@@ -33,7 +34,7 @@ class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FavouriteAdapter.ViewHolder, position: Int) {
-        var data: MoviesID= movieslist[position]
+        var data: Favourite= movieslist[position]
         holder.setId(data)
     }
 
@@ -43,12 +44,17 @@ class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>() {
 
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var img: ImageView = itemView.findViewById(R.id.id_moviesPopular)
-        var titel: TextView = itemView.findViewById(R.id.name_of_moviesPopular)
-        var rated: TextView = itemView.findViewById(R.id.rating_popular)
-        var language: TextView = itemView.findViewById(R.id.typeof_movies)
+        val img: ImageView = itemView.findViewById(R.id.id_movies_fav)
+        val titel: TextView = itemView.findViewById(R.id.name_of_movies_fav)
+        val overview: TextView = itemView.findViewById(R.id.overview_movies_fav)
+        val imgDelted: ImageView = itemView.findViewById(R.id.imgFav)
 
-        fun setId(data: MoviesID) {
+        fun setId(data: Favourite) {
+            Glide.with(img.context)
+                .load(Const.BASE_URL_IMG + data.poster_path)
+                .into(img)
+            titel.text = data.title
+            overview.text = data.overview
 
         }
 

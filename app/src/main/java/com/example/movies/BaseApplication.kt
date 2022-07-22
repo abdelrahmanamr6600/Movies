@@ -20,6 +20,7 @@ class BaseApplication : Application() {
         db = Room.databaseBuilder(applicationContext,
             DB::class.java,
             DATABASE_NAME)
+            .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()
     }

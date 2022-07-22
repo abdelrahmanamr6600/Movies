@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.movies.FragmentsUser.*
+import com.example.movies.FragmentsUser.FavouriteMovies.FavouriteMovies
 
 import com.example.movies.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemReselectedListener
                 }
                 R.id.list_user -> {
-                    loadFragment(ListMovies())
+                    loadFragment(FavouriteMovies())
                     return@setOnNavigationItemReselectedListener
                 }
                 R.id.profile_customer ->{

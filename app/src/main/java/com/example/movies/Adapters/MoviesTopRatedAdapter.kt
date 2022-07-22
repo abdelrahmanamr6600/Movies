@@ -7,23 +7,27 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movies.BaseApplication
 import com.example.movies.Pojo.Const
+import com.example.movies.Pojo.Favourite
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.R
 import com.example.movies.showToast
 import java.util.*
 
 class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHolder>() {
-  private lateinit var onItemListner: SentDetails
+    private lateinit var onItemListner: SentDetails
     var movieslist: List<Result> = emptyList()
 
     fun setList(data: List<Result>) {
         this.movieslist = data
         notifyDataSetChanged()
     }
+
     fun setOnItemClick(item: SentDetails) {
         this.onItemListner = item
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -36,9 +40,6 @@ class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHol
     override fun onBindViewHolder(holder: MoviesTopRatedAdapter.ViewHolder, position: Int) {
         var data: Result = movieslist[position]
         holder.setId(data)
-        holder.img_fav.setOnClickListener {
-            onItemListner.getClickedFavourite(movieslist.get(position).id)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -50,19 +51,25 @@ class MoviesTopRatedAdapter : RecyclerView.Adapter<MoviesTopRatedAdapter.ViewHol
         fun getClickedFavourite(postion: Int)
     }
 
-    inner class ViewHolder(itemView: View,itemlistenr:SentDetails ) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, itemlistenr: SentDetails) :
+        RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_movies)
         var titel: TextView = itemView.findViewById(R.id.name_of_movies)
         var rated: TextView = itemView.findViewById(R.id.toprated_movies)
         var img_fav: ImageView = itemView.findViewById(R.id.imgFav)
 
 
-                init {
-                    img.setOnClickListener {
-                        onItemListner.onItemClick(movieslist[layoutPosition].id)
-                    }
+        init {
+            img.setOnClickListener {
+                onItemListner.onItemClick(movieslist[layoutPosition].id)
+            }
 
-                }
+            img_fav.setOnClickListener {
+                onItemListner.getClickedFavourite(movieslist[layoutPosition].id)
+                img_fav.setImageResource(R.drawable.ic_heartclicked)
+            }
+
+        }
 
         fun setId(data: Result) {
             titel.text = data.title

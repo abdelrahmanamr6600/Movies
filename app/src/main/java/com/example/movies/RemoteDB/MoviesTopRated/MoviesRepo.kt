@@ -16,11 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MoviesRepo(val context: Context) {
-    val instance = context?.let { DB.getInstance(context = it) }
-    val db = instance?.let { RepoDB(it) }
-
-
+class MoviesRepo {
     fun getMovies(): MutableLiveData<List<Result>> {
         val mutableLiveData = MutableLiveData<List<Result>>()
         val userInterfacebuilder = Builder.retorfitBuilder.create(UserInterFace::class.java)
@@ -30,33 +26,34 @@ class MoviesRepo(val context: Context) {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
                 if (response.isSuccessful) {
                     mutableLiveData.postValue(response.body()!!.results)
-                    //BaseApplication.getDatabase()?.getDao()?.insertMovies(response.body()!!.results)
-                    db!!.insertMovies(response.body()!!.results)
+                   BaseApplication.getDatabase()?.getDao()?.insertMovies(response.body()!!.results)
+
                 }
             }
 
             override fun onFailure(call: Call<Movies>, t: Throwable) {
-                mutableLiveData.postValue(db!!.getMovies())
+                mutableLiveData.postValue(BaseApplication.db!!.getDao().getMovies())
             }
         })
         return mutableLiveData
     }
 
-//    fun getMoviebyId(movie: Int): MutableLiveData<MoviesID> {
-//        var mutable = MutableLiveData<MoviesID>()
-//        val interBuilder: UserInterFace = Builder.retorfitBuilder.create(UserInterFace::class.java)
-//        val call = interBuilder.getMovieByID(movie)
-//        call.enqueue(object : Callback<MoviesID> {
-//            override fun onResponse(call: Call<MoviesID>, response: Response<MoviesID>) {
-//                if (response.isSuccessful)
-//                    mutable.postValue(response.body())
-//            }
-//
-//            override fun onFailure(call: Call<MoviesID>, t: Throwable) {
-//                Log.d("Error", t.message.toString())
-//            }
-//
-//        })
-//        return mutable
-//    }
+    fun getMoviebyId(movie: Int): MutableLiveData<MoviesID> {
+        var mutable = MutableLiveData<MoviesID>()
+        val interBuilder: UserInterFace = Builder.retorfitBuilder.create(UserInterFace::class.java)
+        val call = interBuilder.getMovieByID(movie)
+        call.enqueue(object : Callback<MoviesID> {
+            override fun onResponse(call: Call<MoviesID>, response: Response<MoviesID>) {
+                if (response.isSuccessful)
+                    mutable.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<MoviesID>, t: Throwable) {
+                Log.d("Error", t.message.toString())
+
+            }
+
+        })
+        return mutable
+    }
 }

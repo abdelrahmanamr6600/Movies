@@ -14,7 +14,7 @@ import com.example.movies.Pojo.Movies.Result
 import java.util.*
 
 class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolder>() {
-//    private lateinit var onItemListner: SentDetails
+   private lateinit var onItemListner: SentDetails
     var movieslist: List<Result> = emptyList()
 
     fun setList(data: List<Result>) {
@@ -28,7 +28,7 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
     ): MoviesPopularAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_movies_popular, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view,onItemListner)
     }
 
     override fun onBindViewHolder(holder: MoviesPopularAdapter.ViewHolder, position: Int) {
@@ -40,13 +40,13 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
         return movieslist.size
     }
 
-//    interface SentDetails {
-//        fun onItemClick(postion: Int)
-//    }
-//    fun setOnItemClick(item: SentDetails) {
-//        this.onItemListner = item
-//    }
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface SentDetails {
+        fun onItemClick(postion: Int)
+    }
+    fun setOnItemClick(item: SentDetails) {
+        this.onItemListner = item
+    }
+    inner class ViewHolder(itemView: View,itemlistenr: SentDetails) : RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_moviesPopular)
         var titel: TextView = itemView.findViewById(R.id.name_of_moviesPopular)
         var rated: TextView = itemView.findViewById(R.id.rating_popular)
@@ -54,11 +54,11 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
 
 
                 init {
-//                    img.setOnClickListener {
-//                        onItemListner.onItemClick(movieslist[layoutPosition].id)
-//                    }
+                    img.setOnClickListener {
+                        onItemListner.onItemClick(movieslist[layoutPosition].id)
+                    }
 
-                }
+          }
 
         fun setId(data: Result) {
             titel.text = data.title
