@@ -10,6 +10,6 @@ interface InterfaceRepo {
     fun getMovies(): List<Result>
      fun insertMovies(movies: List<Result>)
     fun insertMoviesFab(id:Int)
-    fun getFavMovies(movies: List<Favourite>)
-    fun Delete(movies: List<Result>)
+    fun getFavMovies(movies:MutableList<Favourite>)
+    fun deleteMovieFavourite(id:Int)
 }

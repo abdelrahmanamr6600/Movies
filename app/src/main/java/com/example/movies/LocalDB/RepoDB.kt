@@ -20,11 +20,11 @@ class RepoDB(private val db: DB) : InterfaceRepo {
         BaseApplication.db!!.getDao().insertMoviesFav(id)
     }
 
-    override fun getFavMovies(movies: List<Favourite>) {
+    override fun getFavMovies(movies: MutableList<Favourite>) {
         BaseApplication.db!!.getDao().getFavMovies()
     }
 
-    override fun Delete(movies: List<Result>) {
-        BaseApplication.db!!.getDao().delete(movies)
+    override fun deleteMovieFavourite(id:Int) {
+        BaseApplication.db!!.getDao().deleteMovieFavourite(id)
     }
 }
