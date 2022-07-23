@@ -31,11 +31,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-    override fun onBackPressed() {
-        if (pressed) {
-            super.onBackPressed()
-        } else {
-            return
-        }
-    }
+//    override fun onBackPressed() {
+//        if (pressed) {
+//            super.onBackPressed()
+//        } else {
+//            return
+//        }
+//    }
 }
