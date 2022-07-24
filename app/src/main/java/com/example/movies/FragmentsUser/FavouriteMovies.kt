@@ -1,8 +1,5 @@
-package com.example.movies.FragmentsUser.FavouriteMovies
+package com.example.movies.FragmentsUser
 
-import android.R
-import android.content.ContentValues.TAG
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.movies.Adapters.FavouriteAdapter
-import com.example.movies.BaseApplication
+import com.example.movies.LocalDB.BaseApplication
 import com.example.movies.Pojo.Favourite
 import com.example.movies.databinding.FragmentFavouriteBinding
 import com.example.movies.showToast
@@ -34,10 +31,18 @@ class FavouriteMovies : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val mList = BaseApplication.db?.getDao()?.getFavMovies()
+/*
         mList?.forEach {
-            Log.e(TAG, "onViewCreated: ${it.title}")
+           if(it==null){
+               binding.secondCart.visibility=View.VISIBLE
+               binding.recFavourite.visibility = View.GONE
+           }else{
+               binding.recFavourite.visibility = View.VISIBLE
+           }
         }
+*/
         sentDataToRecyclerviewFavourite(mList!!)
+        deleteMovie()
     }
 
 

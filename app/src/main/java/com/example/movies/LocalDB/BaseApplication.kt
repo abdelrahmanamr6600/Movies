@@ -1,9 +1,7 @@
-package com.example.movies
+package com.example.movies.LocalDB
 
 import android.app.Application
 import androidx.room.Room
-import com.example.movies.LocalDB.DATABASE_NAME
-import com.example.movies.LocalDB.DB
 
 class BaseApplication : Application() {
 

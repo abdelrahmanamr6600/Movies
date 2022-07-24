@@ -5,7 +5,7 @@ import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.Pojo.MoviesId.MoviesID
 
-interface InterfaceRepo {
+interface IRepo {
 
     fun getMovies(): List<Result>
      fun insertMovies(movies: List<Result>)
