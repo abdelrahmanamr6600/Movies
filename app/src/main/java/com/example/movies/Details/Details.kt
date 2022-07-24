@@ -5,16 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import com.bumptech.glide.Glide
-import com.example.movies.Adapters.MoviesPopularAdapter
-import com.example.movies.Adapters.MoviesTopRatedAdapter
-import com.example.movies.FragmentsUser.Home
+import com.example.movies.FragmentsUser.FragmentHome
 import com.example.movies.Pojo.Const
-import com.example.movies.R
-import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.ActivityDetailsBinding
-import com.example.movies.databinding.ActivityMainBinding
 import com.example.movies.showToast
-import java.security.cert.Extension
 
 class Details : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
@@ -30,7 +24,7 @@ class Details : AppCompatActivity() {
         }
 
         binding.backIcon.setOnClickListener {
-            startActivity(Intent(applicationContext,Home::class.java))
+            startActivity(Intent(applicationContext,FragmentHome::class.java))
         }
     }
 // use coroutines

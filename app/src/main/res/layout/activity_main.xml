@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.movies.FragmentsUser.Home"
+        android:name="com.example.movies.FragmentsUser.FragmentHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="10" />

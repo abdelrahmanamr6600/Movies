@@ -6,37 +6,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".FragmentsUser.Home">
+    tools:context=".FragmentsUser.FragmentHome">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:orientation="horizontal">
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Hello"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp" />
+
+                <TextView
+                    android:id="@+id/name_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text=" Mahmoud,"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp" />
+
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Hello"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp" />
-
-            <TextView
-                android:id="@+id/name_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text=" Mahmoud,"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp" />
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:text="Book your favourite movie "
+                android:textColor="#B6B7B7"
+                android:textSize="@dimen/_15ssp" />
 
         </LinearLayout>
 
@@ -48,27 +63,19 @@
             android:src="@drawable/user_profile" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
-        android:fontFamily="@font/metrophobic"
-        android:text="Book your favourite movie "
-        android:textColor="#B6B7B7"
-        android:textSize="@dimen/_15ssp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_movies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
         android:fontFamily="@font/poppins_medium"
         android:text="Popular"
         android:textColor="@color/black"
@@ -77,8 +84,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_movies_popular"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_5sdp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 </LinearLayout>

@@ -1,13 +1,10 @@
 package com.example.movies.LocalDB
 
-import com.example.movies.BaseApplication
-import com.example.movies.LocalDB.Interfaces.InterfaceRepo
+import com.example.movies.LocalDB.Interfaces.IRepo
 import com.example.movies.Pojo.Favourite
-import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.Movies.Result
-import com.example.movies.Pojo.MoviesId.MoviesID
 
-class RepoDB(private val db: DB) : InterfaceRepo {
+class RepoDB(private val db: DB) : IRepo {
 
     override fun getMovies(): List<Result> =
         BaseApplication.db!!.getDao().getMovies()

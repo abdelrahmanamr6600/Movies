@@ -7,21 +7,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import com.example.movies.Adapters.MoviesPopularAdapter
 import com.example.movies.Adapters.MoviesTopRatedAdapter
-import com.example.movies.BaseApplication
+import com.example.movies.LocalDB.BaseApplication
 import com.example.movies.Details.Details
-import com.example.movies.LocalDB.DB
-import com.example.movies.LocalDB.RepoDB
 import com.example.movies.Pojo.Movies.Result
-import com.example.movies.R
 import com.example.movies.RemoteDB.MoviesPopular.MoviesPopularViewModel
 import com.example.movies.RemoteDB.MoviesTopRated.MoviesViewModel
 import com.example.movies.databinding.FragmentHomeBinding
-import com.example.movies.databinding.FragmentTestBinding
+import com.example.movies.showToast
 
-class Home : Fragment() {
+class FragmentHome : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val moviesTopRatedAdapter by lazy { MoviesTopRatedAdapter() }
@@ -77,8 +73,17 @@ class Home : Fragment() {
             }
 
             override fun getClickedFavourite(postion: Int) {
-                Log.d("Clicked", "Postion is $postion")
-                BaseApplication.db?.getDao()?.insertMoviesFav(postion)
+                BaseApplication.db?.getDao()?.getFavMovies()?.forEach {
+                    if (it.id == postion) {
+                        showToast(requireContext(), "Already exists")
+                        return
+                    } else {
+                        showToast(requireContext(), "Movie Added")
+                        BaseApplication.db?.getDao()?.insertMoviesFav(postion)
+                    }
+                }
+
+
             }
 
         })
@@ -91,6 +96,23 @@ class Home : Fragment() {
                 val intent = Intent(requireContext(), Details::class.java)
                 intent.putExtra("id", id)
                 startActivity(intent)
+            }
+
+            override fun getClickedFavourite(id: Int) {
+                Log.d("idk", id.toString())
+
+                BaseApplication.db?.getDao()?.getFavMovies()?.forEach {
+
+                    if (it.id == id) {
+                        showToast(requireContext(), "Already exists")
+
+                    } else {
+                        showToast(requireContext(), "Movie Added")
+                        BaseApplication.db?.getDao()?.insertMoviesFav(id)
+                    }
+                }
+
+
             }
 
         })

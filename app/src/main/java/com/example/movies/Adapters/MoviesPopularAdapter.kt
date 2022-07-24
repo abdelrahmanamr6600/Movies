@@ -42,12 +42,14 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
 
     interface SentDetails {
         fun onItemClick(postion: Int)
+        fun getClickedFavourite(id: Int)
     }
     fun setOnItemClick(item: SentDetails) {
         this.onItemListner = item
     }
     inner class ViewHolder(itemView: View,itemlistenr: SentDetails) : RecyclerView.ViewHolder(itemView) {
         var img: ImageView = itemView.findViewById(R.id.id_moviesPopular)
+        var img_fav: ImageView = itemView.findViewById(R.id.imgFav_popular)
         var titel: TextView = itemView.findViewById(R.id.name_of_moviesPopular)
         var rated: TextView = itemView.findViewById(R.id.rating_popular)
         var language: TextView = itemView.findViewById(R.id.typeof_movies)
@@ -57,7 +59,10 @@ class MoviesPopularAdapter : RecyclerView.Adapter<MoviesPopularAdapter.ViewHolde
                     img.setOnClickListener {
                         onItemListner.onItemClick(movieslist[layoutPosition].id)
                     }
-
+                    img_fav.setOnClickListener {
+                        onItemListner.getClickedFavourite(movieslist[layoutPosition].id)
+                        img_fav.setImageResource(R.drawable.ic_heartclicked)
+                    }
           }
 
         fun setId(data: Result) {

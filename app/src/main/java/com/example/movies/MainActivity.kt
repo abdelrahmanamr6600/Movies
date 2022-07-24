@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.movies.FragmentsUser.*
-import com.example.movies.FragmentsUser.FavouriteMovies.FavouriteMovies
+import com.example.movies.FragmentsUser.FavouriteMovies
 
 import com.example.movies.databinding.ActivityMainBinding
 
@@ -16,17 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        loadFragment(Home())
+        loadFragment(FragmentHome())
         binding.bottomNav.setOnNavigationItemReselectedListener {
             when (it.itemId) {
                 R.id.home_user -> {
-                    loadFragment(Home())
+                    loadFragment(FragmentHome())
                     return@setOnNavigationItemReselectedListener
                 }
-                R.id.booking_User -> {
-                    loadFragment(Booking())
-                    return@setOnNavigationItemReselectedListener
-                }
+
                 R.id.list_user -> {
                     loadFragment(FavouriteMovies())
                     return@setOnNavigationItemReselectedListener

@@ -1,11 +1,8 @@
 package com.example.movies.RemoteDB.MoviesPopular
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.movies.BaseApplication
-import com.example.movies.LocalDB.DB
-import com.example.movies.LocalDB.RepoDB
+import com.example.movies.LocalDB.BaseApplication
 
 import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.Movies.Result
