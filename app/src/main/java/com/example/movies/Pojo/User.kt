@@ -1,12 +1,12 @@
 package com.example.movies.Pojo
 
 data class User(
-    var id: String? = null,
-    var name :String? = null ,
-    var email :String? = null ,
-    var number :String? = null ,
-    var password :String? = null ,
-    var configpassword :String? = null ,
-    )
+    val id: String = "",
+    val name: String = "",
+    val email: String = "".lowercase(),
+    val number: String = "",
+    val password: String = "",
+    val confpassword: String = "",
+)
 
 

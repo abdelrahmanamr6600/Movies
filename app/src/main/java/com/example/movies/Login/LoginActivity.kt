@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.movies.Pojo.User
 import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 
 class LoginActivity : AppCompatActivity() {
@@ -25,9 +28,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginBtnLog.setOnClickListener {
             binding.apply {
-                var email = loginTvEmail.text.toString()
-                var passsword = loginTvPassword.text.toString()
-                loginviewmodel.logInFirebase(email=email, password = passsword)
+                val email = loginTvEmail.text.toString()
+                val passsword = loginTvPassword.text.toString()
+//                loginviewmodel.logInFirebase(email,passsword)
+
+                createUserWithEmailAndPassword(email, passsword)
             }
         }
     }
@@ -37,5 +42,28 @@ class LoginActivity : AppCompatActivity() {
         } else {
             return
         }
+    }
+
+    fun createUserWithEmailAndPassword(email: String, password: String) {
+        try {
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        println("success")
+                        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+                        uploadUserData(User(id = currentUserId, name = email, password = password))
+                    } else {
+                        println(it.exception?.message)
+                        println("Error")
+                    }
+                }
+        }catch (e : Exception){
+            println(e.message ?: e.toString())
+        }
+    }
+
+    private fun uploadUserData(user: User){
+        val dataRef = FirebaseDatabase.getInstance().getReference("Users")
+        dataRef.child("1").setValue(user)
     }
 }

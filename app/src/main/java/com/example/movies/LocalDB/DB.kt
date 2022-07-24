@@ -10,7 +10,7 @@ import com.example.movies.Pojo.Movies.Movies
 import com.example.movies.Pojo.Movies.Result
 
 const val DATABASE_NAME = "movies"
-@Database(entities = [Result::class,Favourite::class], version =5, exportSchema = false)
+@Database(entities = [Result::class,Favourite::class], version =2, exportSchema = false)
 
 abstract class DB : RoomDatabase() {
 

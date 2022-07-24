@@ -7,7 +7,12 @@ import com.google.firebase.database.FirebaseDatabase
 
 class RegisterationRepo(var sentState: state) {
 
+fun createUserandEmail(email:String , password:String){
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener {
 
+                }
+}
 
     fun uploded(user: User) {
         val dataRef = FirebaseDatabase.getInstance().getReference("Users")
