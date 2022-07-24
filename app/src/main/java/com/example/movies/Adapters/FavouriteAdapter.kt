@@ -14,28 +14,39 @@ import com.example.movies.R
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.Pojo.MoviesId.MoviesID
 import java.util.*
-
 class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>() {
+    private lateinit var onItemListner:SentDetails
+    //var movieslist: List<Favourite> = mutableListOf()
+    var movieslist  : MutableList<Favourite> = mutableListOf()
 
-    var movieslist: List<Favourite> = emptyList()
-
-    fun setList(data: List<Favourite>) {
+    fun setList(data: MutableList<Favourite> ) {
         this.movieslist = data
         notifyDataSetChanged()
     }
+    fun deleteItem(index: Int){
+        movieslist.removeAt(index)
+        notifyDataSetChanged()
+    }
+    interface SentDetails {
+        fun onItemClick(id: Int,postion:Int)
 
+    }
+    fun setOnItemClick(item:SentDetails) {
+        this.onItemListner = item
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): FavouriteAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_favoruite, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, itemlistenr = onItemListner)
     }
 
     override fun onBindViewHolder(holder: FavouriteAdapter.ViewHolder, position: Int) {
         var data: Favourite= movieslist[position]
         holder.setId(data)
+
     }
 
     override fun getItemCount(): Int {
@@ -43,12 +54,20 @@ class FavouriteAdapter : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>() {
     }
 
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, itemlistenr:SentDetails) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.id_movies_fav)
         val titel: TextView = itemView.findViewById(R.id.name_of_movies_fav)
         val overview: TextView = itemView.findViewById(R.id.overview_movies_fav)
         val imgDelted: ImageView = itemView.findViewById(R.id.imgFav)
 
+
+        init {
+
+            imgDelted.setOnClickListener {
+                onItemListner.onItemClick(movieslist[layoutPosition].id,adapterPosition)
+
+            }
+        }
         fun setId(data: Favourite) {
             Glide.with(img.context)
                 .load(Const.BASE_URL_IMG + data.poster_path)

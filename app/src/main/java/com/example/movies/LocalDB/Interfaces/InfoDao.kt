@@ -18,11 +18,10 @@ interface InfoDao {
     fun getMovies(): List<Result>
 
     @Query("SELECT * FROM favourite")
-    fun getFavMovies():List<Favourite>
+    fun getFavMovies():MutableList<Favourite>
 
-    @Delete
-    fun delete(list: List<Result>)
+    @Query("DELETE FROM favourite WHERE id=:id" )
+    fun deleteMovieFavourite(id:Int)
 
-    //هت[يب بيانات الفيلم من الري.لت ثم هتإنسرته في ال]اتا بي. الخاصه بالفاف,ريت
 
 }

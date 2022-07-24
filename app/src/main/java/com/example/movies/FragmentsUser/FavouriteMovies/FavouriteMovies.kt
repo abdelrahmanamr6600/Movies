@@ -13,11 +13,12 @@ import com.example.movies.Adapters.FavouriteAdapter
 import com.example.movies.BaseApplication
 import com.example.movies.Pojo.Favourite
 import com.example.movies.databinding.FragmentFavouriteBinding
+import com.example.movies.showToast
 
 
 class FavouriteMovies : Fragment() {
     private lateinit var binding: FragmentFavouriteBinding
-    private val FavourtieAdapter by lazy { FavouriteAdapter() }
+    private val favourtieAdapter by lazy { FavouriteAdapter() }
 
 
     override fun onCreateView(
@@ -40,13 +41,21 @@ class FavouriteMovies : Fragment() {
     }
 
 
-    private fun sentDataToRecyclerviewFavourite(list: List<Favourite>) {
-        FavourtieAdapter.setList(list)
-        binding.recFavourite.adapter = FavourtieAdapter
-
-
+    private fun sentDataToRecyclerviewFavourite(list:MutableList<Favourite>) {
+        favourtieAdapter.setList(list)
+        binding.recFavourite.adapter =favourtieAdapter
     }
+    private fun deleteMovie() {
+        favourtieAdapter.setOnItemClick(object : FavouriteAdapter.SentDetails {
+            override fun onItemClick(id: Int, postion: Int) {
+                Log.d("Delete",postion.toString())
+                BaseApplication.db?.getDao()?.deleteMovieFavourite(id)
+                favourtieAdapter.deleteItem(postion)
+                showToast(requireContext(),"Movie removed")
+            }
 
+        })
+    }
 
 
 }
