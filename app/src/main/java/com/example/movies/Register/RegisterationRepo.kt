@@ -5,31 +5,20 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 
-class RegisterationRepo(var sentState:state) {
+class RegisterationRepo(var sentState: state) {
 
-    fun registerEmail(email:String ,password:String){
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
 
-            }
+
+    fun uploded(user: User) {
+        val dataRef = FirebaseDatabase.getInstance().getReference("Users")
+        dataRef.child("1").setValue(user)
     }
 
-    fun uploded(user: User){
-        FirebaseDatabase.getInstance().getReference("Users").child(
-            FirebaseAuth.getInstance().currentUser!!.uid
-        ).setValue(user).addOnCompleteListener {
-         if(it.isSuccessful){
+    interface state {
+        fun onSuccess()
+        fun onError(error: String)
 
-
-         }
-        }
     }
-
-interface state{
-    fun onSuccess()
-    fun onError(error:String)
-
-}
 }
 
 

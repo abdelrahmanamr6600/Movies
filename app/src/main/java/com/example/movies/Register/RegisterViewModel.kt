@@ -11,7 +11,7 @@ class RegisterViewModel: ViewModel(),RegisterationRepo.state {
     var context: Context? = null
     val repo = RegisterationRepo(this)
 
-    fun  Registeration(email:String , password : String,user: User){
+    fun  Registeration(user: User){
        repo.uploded(user)
 
 

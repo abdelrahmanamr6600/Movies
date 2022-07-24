@@ -7,6 +7,8 @@ import com.example.movies.Login.LoginActivity
 import com.example.movies.Pojo.User
 import com.example.movies.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -25,18 +27,37 @@ val registerViewModel =RegisterViewModel()
 
         binding.registerBtn.setOnClickListener {
             binding.apply {
-                var name = registerTvName.toString()
-                var email = registerTvEmail.toString()
-                var phone = registerTvPhone.toString()
-                var password = registerTvPassword.toString()
-                var Congpassword = registerTvConfrimPassword.toString()
+                var name = registerTvName.text.toString()
+                var email = registerTvEmail.text.toString()
+                var phone = registerTvPhone.text.toString()
+                var password = registerTvPassword.text.toString()
+                var Confpassword = registerTvConfrimPassword.text.toString()
+                val user = User("2",name,email,phone,password,Confpassword)
+                registerViewModel.Registeration(user)
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+                            startActivity(intent)
+                        } else {
 
-                registerViewModel.Registeration(email,password, User(FirebaseAuth.getInstance().currentUser!!.uid
-                ,name,email,phone,password,Congpassword))
+                        }
+                    }
+
+
             }
 
         }
 
+    }
+    fun registerEmail(email:String ,password:String,user:User){
+
+    }
+
+    fun uploded(user: User){
+        FirebaseDatabase.getInstance().getReference("Users").child(
+            FirebaseAuth.getInstance().currentUser!!.uid
+        ).setValue(user)
     }
     override fun onBackPressed() {
         if (pressed) {
