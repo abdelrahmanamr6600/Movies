@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.profile_customer ->{
-                    loadFragment(Profile())
+                    loadFragment(FragmentProfile())
 
                 }
             }

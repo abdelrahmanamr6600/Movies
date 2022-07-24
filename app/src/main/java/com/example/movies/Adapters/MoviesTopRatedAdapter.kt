@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movies.LocalDB.BaseApplication
 import com.example.movies.Pojo.Const
 import com.example.movies.Pojo.Movies.Result
 import com.example.movies.R

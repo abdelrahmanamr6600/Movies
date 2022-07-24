@@ -16,6 +16,7 @@ import com.example.movies.RemoteDB.MoviesPopular.MoviesPopularViewModel
 import com.example.movies.RemoteDB.MoviesTopRated.MoviesViewModel
 import com.example.movies.databinding.FragmentHomeBinding
 import com.example.movies.showToast
+import com.google.firebase.auth.FirebaseAuth
 
 class FragmentHome : Fragment() {
 
@@ -33,7 +34,7 @@ class FragmentHome : Fragment() {
 
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+   //     binding.nameUser.text = FirebaseAuth.getInstance().currentUser!!.displayName
         getTopRatedMovies()
         getIdFromTopRatedMovies()
         getPopularMovies()
@@ -65,7 +66,6 @@ class FragmentHome : Fragment() {
 
     private fun getIdFromTopRatedMovies() {
         moviesTopRatedAdapter.setOnItemClick(object : MoviesTopRatedAdapter.SentDetails {
-
             override fun onItemClick(id: Int) {
                 val intent = Intent(requireContext(), Details::class.java)
                 intent.putExtra("id", id)
@@ -73,15 +73,8 @@ class FragmentHome : Fragment() {
             }
 
             override fun getClickedFavourite(postion: Int) {
-                BaseApplication.db?.getDao()?.getFavMovies()?.forEach {
-                    if (it.id == postion) {
-                        showToast(requireContext(), "Already exists")
-                        return
-                    } else {
-                        showToast(requireContext(), "Movie Added")
-                        BaseApplication.db?.getDao()?.insertMoviesFav(postion)
-                    }
-                }
+                showToast(requireContext(), "Movie Added")
+                BaseApplication.db?.getDao()?.insertMoviesFav(postion)
 
 
             }
@@ -100,22 +93,12 @@ class FragmentHome : Fragment() {
 
             override fun getClickedFavourite(id: Int) {
                 Log.d("idk", id.toString())
-
-                BaseApplication.db?.getDao()?.getFavMovies()?.forEach {
-
-                    if (it.id == id) {
-                        showToast(requireContext(), "Already exists")
-
-                    } else {
-                        showToast(requireContext(), "Movie Added")
-                        BaseApplication.db?.getDao()?.insertMoviesFav(id)
-                    }
-                }
-
+            BaseApplication.db?.getDao()?.insertMoviesFav(id)
 
             }
 
         })
     }
+
 
 }

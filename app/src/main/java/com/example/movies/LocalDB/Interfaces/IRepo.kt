@@ -8,8 +8,9 @@ import com.example.movies.Pojo.MoviesId.MoviesID
 interface IRepo {
 
     fun getMovies(): List<Result>
-     fun insertMovies(movies: List<Result>)
-    fun insertMoviesFab(id:Int)
-    fun getFavMovies(movies:MutableList<Favourite>)
-    fun deleteMovieFavourite(id:Int)
+    fun insertMovies(movies: List<Result>)
+    fun insertMoviesFab(id: Int)
+    fun getFavMovies(movies: MutableList<Favourite>)
+    fun deleteMovieFavourite(id: Int)
+
 }

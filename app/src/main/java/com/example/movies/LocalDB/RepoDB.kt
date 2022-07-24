@@ -24,4 +24,6 @@ class RepoDB(private val db: DB) : IRepo {
     override fun deleteMovieFavourite(id:Int) {
         BaseApplication.db!!.getDao().deleteMovieFavourite(id)
     }
+
+
 }

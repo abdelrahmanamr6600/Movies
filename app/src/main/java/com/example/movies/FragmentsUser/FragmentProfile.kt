@@ -14,7 +14,7 @@ import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class Profile : Fragment() {
+class FragmentProfile : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

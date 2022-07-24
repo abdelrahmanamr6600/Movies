@@ -30,7 +30,7 @@ class FavouriteMovies : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mList = BaseApplication.db?.getDao()?.getFavMovies()
+
 /*
         mList?.forEach {
            if(it==null){
@@ -41,7 +41,8 @@ class FavouriteMovies : Fragment() {
            }
         }
 */
-        sentDataToRecyclerviewFavourite(mList!!)
+            BaseApplication.db?.getDao()?.getFavMovies()
+                ?.let { sentDataToRecyclerviewFavourite(it) }
         deleteMovie()
     }
 

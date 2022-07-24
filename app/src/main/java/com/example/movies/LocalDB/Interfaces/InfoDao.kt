@@ -11,8 +11,7 @@ interface InfoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovies(movie: List<Result>)
 
-    @Query("INSERT INTO favourite SELECT * FROM movies WHERE id = :id ")
-
+    @Query("INSERT INTO favourite SELECT * FROM movies WHERE id = :id")
     fun insertMoviesFav(id: Int)
 
     @Query("SELECT * FROM movies")
@@ -23,6 +22,7 @@ interface InfoDao {
 
     @Query("DELETE FROM favourite WHERE id=:id")
     fun deleteMovieFavourite(id: Int)
+
 
 
 }
