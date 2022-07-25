@@ -32,10 +32,9 @@ class RegisterActivity : AppCompatActivity() {
                 var phone = registerTvPhone.text.toString()
                 var password = registerTvPassword.text.toString()
                 var Confpassword = registerTvConfrimPassword.text.toString()
-                val user = User("2", name, email, phone, password, Confpassword)
-                registerViewModel.Registeration(user)
-                registerViewModel.createUser(email,password)
-
+                val currentUserId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+                val user = User( id = currentUserId , name, email, phone, password, Confpassword)
+                registerViewModel.Registeration(email,password,user)
 
 
             }
@@ -43,8 +42,6 @@ class RegisterActivity : AppCompatActivity() {
         }
 
     }
-
-
 
 
     override fun onBackPressed() {

@@ -7,7 +7,7 @@ import com.example.movies.showToast
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginRepo(var sentState: state) {
-/*
+
     fun logIn(email: String, password: String) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
         .addOnCompleteListener {
@@ -19,7 +19,7 @@ class LoginRepo(var sentState: state) {
         }
 
     }
-    */
+
 
     fun createUserandEmail(email: String, password: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)

@@ -1,7 +1,7 @@
 package com.example.movies.Pojo
 
 data class User(
-    val id: String = "",
+    var id: String = "",
     val name: String = "",
     val email: String = "".lowercase(),
     val number: String = "",

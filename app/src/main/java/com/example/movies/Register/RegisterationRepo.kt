@@ -7,16 +7,29 @@ import com.google.firebase.database.FirebaseDatabase
 
 class RegisterationRepo(var sentState: state) {
 
-fun createUserandEmail(email:String , password:String){
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+    fun createUserWithEmailAndPassword(email: String, password: String,user:User) {
+        try {
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        println("success")
 
+                     user.id=FirebaseAuth.getInstance().currentUser?.uid.toString()
+                        uploadUserData(user)
+                    } else {
+                        println(it.exception?.message)
+                        println("Error")
+                    }
                 }
-}
+        }catch (e : Exception){
+            println(e.message ?: e.toString())
+        }
+    }
 
-    fun uploded(user: User) {
+    private fun uploadUserData(user: User){
         val dataRef = FirebaseDatabase.getInstance().getReference("Users")
-        dataRef.child("1").setValue(user)
+
+        dataRef.child(FirebaseAuth.getInstance().currentUser?.uid.toString()).setValue(user)
     }
 
     interface state {
