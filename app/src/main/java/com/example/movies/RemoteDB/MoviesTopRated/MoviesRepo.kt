@@ -24,7 +24,6 @@ class MoviesRepo {
                 if (response.isSuccessful) {
                     mutableLiveData.postValue(response.body()!!.results)
                    BaseApplication.getDatabase()?.getDao()?.insertMovies(response.body()!!.results)
-
                 }
             }
 

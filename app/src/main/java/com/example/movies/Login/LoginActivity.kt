@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.movies.Pojo.User
 import com.example.movies.Register.RegisterActivity
 import com.example.movies.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 
 class LoginActivity : AppCompatActivity() {
@@ -25,9 +28,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginBtnLog.setOnClickListener {
             binding.apply {
-                var email = loginTvEmail.text.toString()
-                var passsword = loginTvPassword.text.toString()
-                loginviewmodel.logInFirebase(email=email, password = passsword)
+                val email = loginTvEmail.text.toString()
+                val passsword = loginTvPassword.text.toString()
+               // loginviewmodel.logInFirebase(email,passsword)
+
             }
         }
     }
@@ -38,4 +42,6 @@ class LoginActivity : AppCompatActivity() {
             return
         }
     }
+
+
 }

@@ -11,11 +11,11 @@ class RegisterViewModel: ViewModel(),RegisterationRepo.state {
     var context: Context? = null
     val repo = RegisterationRepo(this)
 
-    fun  Registeration(user: User){
-       repo.uploded(user)
+    fun  Registeration(email:String,password:String , user: User){
 
-
+       repo.createUserWithEmailAndPassword(email,password,user)
     }
+
 
     override fun onSuccess() {
         context?.startActivity(Intent(context,LoginActivity::class.java))
