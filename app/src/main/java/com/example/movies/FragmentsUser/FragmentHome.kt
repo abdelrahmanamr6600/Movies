@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.movies.Adapters.MoviesPopularAdapter
 import com.example.movies.Adapters.MoviesTopRatedAdapter
 import com.example.movies.LocalDB.BaseApplication
@@ -73,12 +74,9 @@ class FragmentHome : Fragment() {
             }
 
             override fun getClickedFavourite(postion: Int) {
-                showToast(requireContext(), "Movie Added")
-                BaseApplication.db?.getDao()?.insertMoviesFav(postion)
-
-
+                    showToast(requireContext(), "Movie Added")
+                    BaseApplication.db?.getDao()?.insertMoviesFav(postion)
             }
-
         })
     }
 
@@ -91,11 +89,17 @@ class FragmentHome : Fragment() {
                 startActivity(intent)
             }
 
-            override fun getClickedFavourite(id: Int) {
-                Log.d("idk", id.toString())
-            BaseApplication.db?.getDao()?.insertMoviesFav(id)
-
+            override fun getClickedFavourite(id: Int, state: Int) {
+               if (state==1){
+                   Toast.makeText(requireContext(),"Added",Toast.LENGTH_SHORT).show()
+                   BaseApplication.db?.getDao()?.insertMoviesFav(id)
+               }
+                else{
+                   Toast.makeText(requireContext(),"Removed",Toast.LENGTH_SHORT).show()
+                   BaseApplication.db?.getDao()?.deleteMovieFavourite(id)
+                }
             }
+
 
         })
     }

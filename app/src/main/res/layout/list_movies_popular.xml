@@ -88,11 +88,13 @@
 
 
         </LinearLayout>
-        <ImageView
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/imgFav_popular"
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_margin="@dimen/_5sdp"
+            android:pointerIcon="top_left_diagonal_double_arrow"
+
             android:layout_gravity="center|end"
             android:src="@drawable/ic_heart"  />
     </LinearLayout>
